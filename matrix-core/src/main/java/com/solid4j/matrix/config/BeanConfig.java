@@ -3,7 +3,7 @@
  */
 package com.solid4j.matrix.config;
 
-import com.solid4j.matrix.core.ClassTemplate;
+import com.solid4j.matrix.mvc.annotation.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class BeanConfig {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ClassTemplate.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BeanConfig.class);
 
     // beanMap:bean=>instance
     private static Map<Class<?>, Object> beanMap = new HashMap<>();
@@ -25,8 +25,11 @@ public class BeanConfig {
     static {
         // 扫描配置的package路径，获取所有的Class
         List<Class<?>> classList = ClassConfig.getClassList();
-        for(Class<?> cls : classList) {
+        for (Class<?> cls : classList) {
             LOGGER.info("cls=" + cls.getName());
+            if(cls.isAnnotationPresent(Controller.class)) {
+
+            }
         }
     }
 }
