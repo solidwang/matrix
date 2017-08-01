@@ -3,6 +3,9 @@
  */
 package com.solid4j.matrix.mvc;
 
+import com.solid4j.matrix.config.ConfigLoader;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -17,7 +20,15 @@ public class ContainerListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        //执行初始化
+        //执行配置初始化
+        ConfigLoader.init();
+
+        //添加路径映射
+        addServletMapping(sce.getServletContext());
+    }
+
+    private void addServletMapping(ServletContext servletContext) {
+        servletContext.getServletRegistration("jsp").addMapping("/WEB-INF/jsp/*");
     }
 
     @Override
