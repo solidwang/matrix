@@ -17,7 +17,10 @@ public class DefaultClassScanner implements ClassScanner {
     @Override
     public List<Class<?>> getClassList(String packageName) {
         return new ClassTemplate(packageName) {
-
+            @Override
+            protected boolean checkAddClass(Class<?> cls) {
+                return true;
+            }
         }.getClassList();
     }
 
