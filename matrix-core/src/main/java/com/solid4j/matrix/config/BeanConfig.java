@@ -3,6 +3,7 @@
  */
 package com.solid4j.matrix.config;
 
+import com.solid4j.matrix.ioc.annotation.Service;
 import com.solid4j.matrix.mvc.annotation.Controller;
 import com.solid4j.matrix.util.ClassUtil;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Bean初始化
  * @author: solidwang
  * @since 1.0
  */
@@ -26,8 +28,10 @@ public class BeanConfig {
     static {
         // 扫描配置的package路径，获取所有的Class
         List<Class<?>> classList = ClassConfig.getClassList();
+        // 将含有注解@Controller/@Service的类实例化加载
         for (Class<?> cls : classList) {
-            if(cls.isAnnotationPresent(Controller.class)) {
+            if (cls.isAnnotationPresent(Controller.class)
+                    || cls.isAnnotationPresent(Service.class)) {
                 String className = cls.getName();
                 Object instance = ClassUtil.newInstance(className);
                 beanMap.put(cls, instance);
