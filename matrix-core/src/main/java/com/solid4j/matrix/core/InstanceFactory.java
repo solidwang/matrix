@@ -22,6 +22,7 @@ public class InstanceFactory {
         return getInstance(CLASS_SCANNER, DefaultClassScanner.class);
     }
 
+
     private static <T> T getInstance(String className, Class<T> defaultClass) {
         String defaultName = ConfigUtil.getString(className);
         if(StringUtils.isEmpty(defaultName)) {
