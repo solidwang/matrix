@@ -15,5 +15,4 @@ public class UserServiceImpl implements UserService {
     public void insert() {
 
     }
-
 }

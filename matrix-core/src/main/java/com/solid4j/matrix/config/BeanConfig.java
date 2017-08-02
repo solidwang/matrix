@@ -4,6 +4,7 @@
 package com.solid4j.matrix.config;
 
 import com.solid4j.matrix.mvc.annotation.Controller;
+import com.solid4j.matrix.util.ClassUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,9 +27,10 @@ public class BeanConfig {
         // 扫描配置的package路径，获取所有的Class
         List<Class<?>> classList = ClassConfig.getClassList();
         for (Class<?> cls : classList) {
-            LOGGER.info("cls=" + cls.getName());
             if(cls.isAnnotationPresent(Controller.class)) {
-
+                String className = cls.getName();
+                Object instance = ClassUtil.newInstance(className);
+                beanMap.put(cls, instance);
             }
         }
     }
