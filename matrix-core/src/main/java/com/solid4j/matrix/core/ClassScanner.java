@@ -13,4 +13,12 @@ public interface ClassScanner {
      * @return
      */
     List<Class<?>> getClassList(String packageName);
+
+    /**
+     * 获取指定父类的子类列表
+     * @param packageName
+     * @param superCls
+     * @return
+     */
+    List<Class<?>> getClassListBySuper(String packageName, Class<?> superCls);
 }

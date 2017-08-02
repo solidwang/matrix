@@ -24,4 +24,14 @@ public class DefaultClassScanner implements ClassScanner {
         }.getClassList();
     }
 
+    @Override
+    public List<Class<?>> getClassListBySuper(String packageName, final Class<?> superCls) {
+        return new ClassTemplateForSuper(packageName, superCls) {
+            @Override
+            protected boolean checkAddClass(Class<?> cls) {
+                return superCls.isAssignableFrom(cls) && !superCls.equals(cls);
+            }
+        }.getClassList();
+    }
+
 }

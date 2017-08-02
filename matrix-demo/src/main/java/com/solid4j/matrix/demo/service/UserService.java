@@ -10,7 +10,6 @@ import com.solid4j.matrix.ioc.annotation.Impl;
  * @author: solidwang
  * @since 1.0
  */
-@Impl(UserServiceImpl.class)
 public interface UserService {
 
     void insert();

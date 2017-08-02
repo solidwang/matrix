@@ -23,4 +23,8 @@ public class ClassConfig {
     public static List<Class<?>> getClassList() {
         return classScanner.getClassList(scanPackage);
     }
+
+    public static List<Class<?>> getClassListBySuper(Class<?> superCls) {
+        return classScanner.getClassListBySuper(scanPackage, superCls);
+    }
 }
