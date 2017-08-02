@@ -34,4 +34,8 @@ public class BeanConfig {
             }
         }
     }
+
+    public static Map<Class<?>, Object> getBeanMap() {
+        return beanMap;
+    }
 }
