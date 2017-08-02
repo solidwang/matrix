@@ -8,6 +8,7 @@ import com.solid4j.matrix.core.ClassScanner;
 import com.solid4j.matrix.core.InstanceFactory;
 import com.solid4j.matrix.util.ConfigUtil;
 
+import java.lang.annotation.Annotation;
 import java.util.List;
 
 /**
@@ -26,5 +27,9 @@ public class ClassConfig {
 
     public static List<Class<?>> getClassListBySuper(Class<?> superCls) {
         return classScanner.getClassListBySuper(scanPackage, superCls);
+    }
+
+    public static List<Class<?>> getClassListByAnnotation(Class<? extends Annotation> annotation) {
+        return classScanner.getClassListByAnnotation(scanPackage, annotation);
     }
 }

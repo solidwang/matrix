@@ -20,6 +20,16 @@ public class ServletDispatcher extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //请供求的方法和路径
+        String currentMethod = request.getMethod();
+        String currentPath = request.getPathInfo();
+
+
+
+
+
         request.getRequestDispatcher("/WEB-INF/jsp/user.jsp").forward(request, response);
+
     }
 }

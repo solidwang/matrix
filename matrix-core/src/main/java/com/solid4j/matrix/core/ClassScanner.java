@@ -1,5 +1,6 @@
 package com.solid4j.matrix.core;
 
+import java.lang.annotation.Annotation;
 import java.util.List;
 
 /**
@@ -15,10 +16,18 @@ public interface ClassScanner {
     List<Class<?>> getClassList(String packageName);
 
     /**
-     * 获取指定父类的子类列表
+     * 获取指定父类的Class列表
      * @param packageName
      * @param superCls
      * @return
      */
     List<Class<?>> getClassListBySuper(String packageName, Class<?> superCls);
+
+    /**
+     * 获取指定注解的Class列表
+     * @param packageName
+     * @param annotation
+     * @return
+     */
+    List<Class<?>> getClassListByAnnotation(String packageName, Class<? extends Annotation> annotation);
 }

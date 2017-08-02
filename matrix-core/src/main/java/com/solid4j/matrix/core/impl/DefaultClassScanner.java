@@ -6,6 +6,7 @@ package com.solid4j.matrix.core.impl;
 import com.solid4j.matrix.core.ClassScanner;
 import com.solid4j.matrix.core.ClassTemplate;
 
+import java.lang.annotation.Annotation;
 import java.util.List;
 
 /**
@@ -30,6 +31,16 @@ public class DefaultClassScanner implements ClassScanner {
             @Override
             protected boolean checkAddClass(Class<?> cls) {
                 return superCls.isAssignableFrom(cls) && !superCls.equals(cls);
+            }
+        }.getClassList();
+    }
+
+    @Override
+    public List<Class<?>> getClassListByAnnotation(String packageName, final Class<? extends Annotation> annotation) {
+        return new ClassTemplateForAnnotation(packageName, annotation) {
+            @Override
+            protected boolean checkAddClass(Class<?> cls) {
+                return cls.isAnnotationPresent(annotation);
             }
         }.getClassList();
     }
