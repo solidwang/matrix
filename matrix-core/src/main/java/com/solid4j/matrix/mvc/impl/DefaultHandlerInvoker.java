@@ -31,7 +31,6 @@ public class DefaultHandlerInvoker implements HandlerInvoker {
         Method method = handler.getMethod();
         Object instance = BeanConfig.getBean(cls);
         Object result = invokeMethod(method, instance);
-
         viewReslover.resloveView(request, response, result);
     }
 

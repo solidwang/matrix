@@ -33,6 +33,7 @@ public class ServletDispatcher extends HttpServlet {
         String currentMethod = request.getMethod();
         String currentPath = request.getPathInfo();
 
+        //根据请求方法和路径得到处理的Handler
         Handler handler = handlerMapping.getHander(currentMethod, currentPath);
 
         handlerInvoker.invoker(request, response, handler);
