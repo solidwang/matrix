@@ -37,6 +37,20 @@
             <version>${servlet.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- JSP -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+            <scope>runtime</scope>
+        </dependency>
         <!-- Apache Commons -->
         <dependency>
             <groupId>commons-lang</groupId>
@@ -60,4 +74,5 @@
             <version>${cglib.version}</version>
         </dependency>
     </dependencies>
+
 </project>

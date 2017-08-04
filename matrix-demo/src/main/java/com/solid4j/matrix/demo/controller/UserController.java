@@ -3,12 +3,16 @@
  */
 package com.solid4j.matrix.demo.controller;
 
+import com.solid4j.matrix.demo.entity.User;
 import com.solid4j.matrix.demo.service.UserService;
 import com.solid4j.matrix.ioc.annotation.Autowire;
+import com.solid4j.matrix.mvc.bean.View;
 import com.solid4j.matrix.mvc.annotation.Controller;
 import com.solid4j.matrix.mvc.annotation.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 /**
  * @author: solidwang
@@ -23,8 +27,9 @@ public class UserController {
     private UserService userService;
 
     @Request.Get("/users")
-    public void index() {
+    public View index() {
         LOGGER.info("----------insert-----------");
-        userService.findUserList();
+        List<User> userlist = userService.findUserList();
+        return new View("user.jsp").add("userList", userlist);
     }
 }

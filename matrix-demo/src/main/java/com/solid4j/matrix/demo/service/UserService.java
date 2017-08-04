@@ -3,8 +3,11 @@
  */
 package com.solid4j.matrix.demo.service;
 
+import com.solid4j.matrix.demo.entity.User;
 import com.solid4j.matrix.demo.service.impl.UserServiceImpl;
 import com.solid4j.matrix.ioc.annotation.Impl;
+
+import java.util.List;
 
 /**
  * @author: solidwang
@@ -12,5 +15,5 @@ import com.solid4j.matrix.ioc.annotation.Impl;
  */
 public interface UserService {
 
-    void findUserList();
+    List<User> findUserList();
 }

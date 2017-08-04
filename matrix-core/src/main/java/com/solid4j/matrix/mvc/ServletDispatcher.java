@@ -21,8 +21,9 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/*", loadOnStartup = 0)
 public class ServletDispatcher extends HttpServlet {
 
+    // 请求映射
     private HandlerMapping handlerMapping = InstanceFactory.getHandlerMapping();
-
+    // 请求反射
     private HandlerInvoker handlerInvoker = InstanceFactory.getHandlerInvoker();
 
     @Override
@@ -34,9 +35,6 @@ public class ServletDispatcher extends HttpServlet {
 
         Handler handler = handlerMapping.getHander(currentMethod, currentPath);
 
-        handlerInvoker.invoker(handler);
-
-        request.getRequestDispatcher("/WEB-INF/jsp/user.jsp").forward(request, response);
-
+        handlerInvoker.invoker(request, response, handler);
     }
 }
