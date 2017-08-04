@@ -12,5 +12,5 @@ import com.solid4j.matrix.ioc.annotation.Impl;
  */
 public interface UserService {
 
-    void insert();
+    void findUserList();
 }

@@ -15,6 +15,7 @@ import java.util.Map;
 
 /**
  * Bean初始化
+ *
  * @author: solidwang
  * @since 1.0
  */
@@ -41,5 +42,9 @@ public class BeanConfig {
 
     public static Map<Class<?>, Object> getBeanMap() {
         return beanMap;
+    }
+
+    public static Object getBean(Class<?> cls) {
+        return beanMap.get(cls);
     }
 }

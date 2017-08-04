@@ -3,7 +3,6 @@
  */
 package com.solid4j.matrix.demo.controller;
 
-import com.solid4j.matrix.core.ClassTemplate;
 import com.solid4j.matrix.demo.service.UserService;
 import com.solid4j.matrix.ioc.annotation.Autowire;
 import com.solid4j.matrix.mvc.annotation.Controller;
@@ -18,13 +17,14 @@ import org.slf4j.LoggerFactory;
 @Controller
 public class UserController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ClassTemplate.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Autowire
     private UserService userService;
 
-    @Request.Get("/user")
-    public void insert() {
+    @Request.Get("/users")
+    public void index() {
         LOGGER.info("----------insert-----------");
+        userService.findUserList();
     }
 }
