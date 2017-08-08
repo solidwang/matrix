@@ -3,6 +3,7 @@
  */
 package com.solid4j.matrix.config;
 
+import com.solid4j.matrix.aop.annotation.Aspect;
 import com.solid4j.matrix.ioc.annotation.Service;
 import com.solid4j.matrix.mvc.annotation.Controller;
 import com.solid4j.matrix.util.ClassUtil;
@@ -32,7 +33,8 @@ public class BeanConfig {
         // 将含有注解@Controller/@Service的类实例化加载
         for (Class<?> cls : classList) {
             if (cls.isAnnotationPresent(Controller.class)
-                    || cls.isAnnotationPresent(Service.class)) {
+                    || cls.isAnnotationPresent(Service.class)
+                    || cls.isAnnotationPresent(Aspect.class)) {
                 String className = cls.getName();
                 Object instance = ClassUtil.newInstance(className);
                 beanMap.put(cls, instance);
@@ -46,5 +48,9 @@ public class BeanConfig {
 
     public static Object getBean(Class<?> cls) {
         return beanMap.get(cls);
+    }
+
+    public static void setBean(Class<?> targetClass, Object proxyInstance) {
+        beanMap.put(targetClass, proxyInstance);
     }
 }
