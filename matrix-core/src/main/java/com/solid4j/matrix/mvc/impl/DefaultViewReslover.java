@@ -6,6 +6,7 @@ package com.solid4j.matrix.mvc.impl;
 import com.solid4j.matrix.common.Constants;
 import com.solid4j.matrix.mvc.ViewReslover;
 import com.solid4j.matrix.mvc.bean.View;
+import com.solid4j.matrix.util.WebUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -30,10 +31,11 @@ public class DefaultViewReslover implements ViewReslover {
                     request.setAttribute(map.getKey(), map.getValue());
                 }
                 request.getRequestDispatcher(path).forward(request, response);
+            } else {
+                WebUtil.writeJSON(response, result);
             }
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
-
 }

@@ -6,6 +6,7 @@ package com.solid4j.matrix.demo.controller;
 import com.solid4j.matrix.demo.entity.User;
 import com.solid4j.matrix.demo.service.UserService;
 import com.solid4j.matrix.ioc.annotation.Autowire;
+import com.solid4j.matrix.mvc.bean.Result;
 import com.solid4j.matrix.mvc.bean.View;
 import com.solid4j.matrix.mvc.annotation.Controller;
 import com.solid4j.matrix.mvc.annotation.Request;
@@ -31,5 +32,10 @@ public class UserController {
         LOGGER.info("----------insert-----------");
         List<User> userlist = userService.findUserList();
         return new View("user.jsp").add("userList", userlist);
+    }
+
+    @Request.Get("/result")
+    public Result result() {
+        return new Result(true);
     }
 }
