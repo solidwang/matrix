@@ -22,6 +22,7 @@ public class ContainerListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         //执行配置初始化
         ConfigLoader.init();
+
         //添加路径映射
         addServletMapping(sce.getServletContext());
     }

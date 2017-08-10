@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Maven #
 target/
 
@@ -9,3 +10,27 @@ target/
 .settings/
 .classpath
 .project
+=======
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+>>>>>>> cd0ae44585e9a864cc7a1debc29384c6fde1b80a
