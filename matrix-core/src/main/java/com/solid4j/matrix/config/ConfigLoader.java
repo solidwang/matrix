@@ -4,10 +4,8 @@
 package com.solid4j.matrix.config;
 
 import com.solid4j.matrix.aop.AopConfig;
-import com.solid4j.matrix.dao.DatabaseHelper;
 import com.solid4j.matrix.ioc.IocConfig;
 import com.solid4j.matrix.mvc.ControllerConfig;
-import com.solid4j.matrix.orm.EntityHelper;
 import com.solid4j.matrix.util.ClassUtil;
 
 /**
@@ -20,7 +18,7 @@ public class ConfigLoader {
 
     public static void init() {
         Class<?>[] classes = {
-                DatabaseHelper.class, EntityHelper.class, BeanConfig.class, ControllerConfig.class, AopConfig.class, IocConfig.class
+                BeanConfig.class, ControllerConfig.class, AopConfig.class, IocConfig.class
         };
 
         for (Class<?> cls : classes) {

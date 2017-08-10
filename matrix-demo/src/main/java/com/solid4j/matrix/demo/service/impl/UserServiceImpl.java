@@ -3,11 +3,9 @@
  */
 package com.solid4j.matrix.demo.service.impl;
 
-import com.solid4j.matrix.core.ClassTemplate;
 import com.solid4j.matrix.demo.entity.User;
 import com.solid4j.matrix.demo.service.UserService;
 import com.solid4j.matrix.ioc.annotation.Service;
-import com.solid4j.matrix.orm.DataSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +23,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findUserList() {
-
-        return DataSet.selectList(User.class);
+        List<User> list = new ArrayList<>();
+        for(int i=0; i<10; i++) {
+            User user = new User("solidwang"+i, "solidwang"+i);
+            list.add(user);
+        }
+        return list;
     }
 }

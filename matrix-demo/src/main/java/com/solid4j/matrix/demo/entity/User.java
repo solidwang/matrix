@@ -3,15 +3,12 @@
  */
 package com.solid4j.matrix.demo.entity;
 
-import com.solid4j.matrix.orm.annotation.Entity;
-
 import java.io.Serializable;
 
 /**
  * @author: solidwang
  * @since 1.0
  */
-@Entity
 public class User implements Serializable {
 
     private Long id;

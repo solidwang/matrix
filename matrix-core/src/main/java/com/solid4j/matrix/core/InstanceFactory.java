@@ -4,10 +4,6 @@
 package com.solid4j.matrix.core;
 
 import com.solid4j.matrix.core.impl.DefaultClassScanner;
-import com.solid4j.matrix.dao.DataAccessor;
-import com.solid4j.matrix.dao.impl.DefaultDataAccessor;
-import com.solid4j.matrix.ds.DataSourceFactory;
-import com.solid4j.matrix.ds.impl.DefaultDataSourceFactory;
 import com.solid4j.matrix.mvc.HandlerInvoker;
 import com.solid4j.matrix.mvc.HandlerMapping;
 import com.solid4j.matrix.mvc.ViewReslover;
@@ -43,14 +39,6 @@ public class InstanceFactory {
 
     public static HandlerInvoker getHandlerInvoker() {
         return getInstance(HANDLER_INVOKER, DefaultHandlerInvoker.class);
-    }
-
-    public static DataSourceFactory getDataSourceFactory() {
-        return getInstance(DS_FACTORY, DefaultDataSourceFactory.class);
-    }
-
-    public static DataAccessor getDataAccessor() {
-        return getInstance(DATA_ACCESSOR, DefaultDataAccessor.class);
     }
 
     public static ViewReslover getViewReslover() {
