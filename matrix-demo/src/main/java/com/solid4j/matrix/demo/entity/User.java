@@ -3,22 +3,25 @@
  */
 package com.solid4j.matrix.demo.entity;
 
+import com.solid4j.matrix.orm.annotation.Entity;
+
 import java.io.Serializable;
 
 /**
  * @author: solidwang
  * @since 1.0
  */
+@Entity
 public class User implements Serializable {
 
     private Long id;
 
-    private String userName;
+    private String username;
 
     private String password;
 
     public User(String userName, String password) {
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
     }
 
@@ -31,11 +34,11 @@ public class User implements Serializable {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassword() {

@@ -18,9 +18,12 @@
         <servlet.version>3.0.1</servlet.version>
         <jackson.version>1.9.13</jackson.version>
         <commons-lang.version>2.4</commons-lang.version>
+        <commons-beanutils.version>1.8.3</commons-beanutils.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
+        <commons-dbutils.version>1.5</commons-dbutils.version>
         <cglib.version>2.2.2</cglib.version>
+        <commons-codec.version>1.8</commons-codec.version>
     </properties>
 
     <dependencies>
@@ -63,9 +66,24 @@
             <version>${commons-collections.version}</version>
         </dependency>
         <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${commons-beanutils.version}</version>
+        </dependency>
+        <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>${commons-dbcp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>${commons-dbutils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
         </dependency>
         <!-- CGLib -->
         <dependency>

@@ -6,6 +6,8 @@ package com.solid4j.matrix.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.URL;
+
 /**
  * Class操作工具类
  *
@@ -37,6 +39,15 @@ public class ClassUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String getClassPath() {
+        String classpath = "";
+        URL resource = getClassLoader().getResource("");
+        if (resource != null) {
+            classpath = resource.getPath();
+        }
+        return classpath;
     }
 
     public static ClassLoader getClassLoader() {
